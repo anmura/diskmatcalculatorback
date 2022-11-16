@@ -1,0 +1,99 @@
+package DiskMatExpressionCalculator.Calculator.Models.McCluskey;
+
+import DiskMatExpressionCalculator.Calculator.Enums.AreaName;
+import DiskMatExpressionCalculator.Calculator.Models.Area;
+import DiskMatExpressionCalculator.Calculator.Models.Function;
+import DiskMatExpressionCalculator.Calculator.Models.Implicant;
+import DiskMatExpressionCalculator.Calculator.Models.Operations.Operation;
+import DiskMatExpressionCalculator.Calculator.Models.FunctionFormData;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+
+public class CoverageTable {
+
+    private final List<Integer> activePositions;
+    private final List<Implicant> simpleImplicants;
+    private final List<Implicant> primaryImplicants;
+
+
+    private Operation functionOperation;
+    private Operation innerFunctionOperation;
+
+    public CoverageTable(List<Implicant> primaryImplicants, List<Implicant> simpleImplicants, Area area) {
+        this.simpleImplicants = simpleImplicants;
+        this.primaryImplicants = primaryImplicants;
+
+        this.activePositions = area.getPositions();
+        AreaName areaName = area.getName();
+
+        switch (areaName) {
+            case ONE -> {
+                functionOperation = new Operation.Or();
+                innerFunctionOperation = new Operation.And();
+            }
+            case ZERO -> {
+                functionOperation = new Operation.And();
+                innerFunctionOperation = new Operation.Or();
+            }
+        }
+    }
+
+    public List<Implicant> getPrimaryImplicants() {
+        return primaryImplicants;
+    }
+
+    public FunctionFormData getFullNormalFormData() {
+        Function fullForm = new Function(functionOperation);
+
+        primaryImplicants.forEach(pi -> fullForm.addElement(pi.getFunctionPart(innerFunctionOperation)));
+
+        return new FunctionFormData(fullForm, primaryImplicants);
+    }
+
+    public FunctionFormData getExpandedNormalFormData() {
+        Function expandedForm = new Function(functionOperation);
+
+        simpleImplicants.forEach(i -> expandedForm.addElement(i.getFunctionPart(innerFunctionOperation)));
+
+        return new FunctionFormData(expandedForm, simpleImplicants);
+    }
+
+    public FunctionFormData getMinimalNormalFormData() {
+        Function minimalForm = new Function(functionOperation);
+
+        List<Implicant> minimalCoverageImplicants = getMinimalCoverageImplicants();
+
+        minimalCoverageImplicants.forEach(i -> minimalForm.addElement(i.getFunctionPart(innerFunctionOperation)));
+
+        return new FunctionFormData(minimalForm, minimalCoverageImplicants);
+    }
+
+    private List<Implicant> getMinimalCoverageImplicants() {
+        List<Implicant> minimalCoverageImplicants = new ArrayList<>(primaryImplicants);
+
+        for (Implicant implicant : primaryImplicants) {
+            minimalCoverageImplicants.remove(implicant);
+            if (notCovered(minimalCoverageImplicants)) {
+                minimalCoverageImplicants.add(implicant);
+            }
+        }
+
+        return minimalCoverageImplicants;
+    }
+
+    private boolean notCovered(List<Implicant> implicants) {
+        List<Integer> coveredAreas = new ArrayList<>();
+
+        for (Implicant implicant : implicants) {
+            coveredAreas.addAll(implicant.getCoverage());
+        }
+
+        coveredAreas = new ArrayList<>(new HashSet<>(coveredAreas));
+
+        return coveredAreas.size() != this.activePositions.size();
+
+    }
+
+}
