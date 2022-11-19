@@ -13,22 +13,22 @@ import java.util.Map;
 public class Tabulation {
 
     private Map<Integer, Map<Integer, List<Implicant>>> tabulationData;
-    private List<Implicant> simpleImplicantList;
+    private List<Implicant> startImplicantList;
     private final int countingValue;
 
     private final int MAX_INDEX = 5;
 
     public Tabulation(Area area) {
         countingValue = Integer.parseInt(area.getName().Value);
-        setSimpleImplicantList(area.getPositions());
+        setStartImplicantList(area.getPositions());
         setTabulationData();
     }
 
-    private void setSimpleImplicantList(List<Integer> positions) {
-        simpleImplicantList = new ArrayList<>();
+    private void setStartImplicantList(List<Integer> positions) {
+        startImplicantList = new ArrayList<>();
         for (int position : positions) {
             String binary = DecHexBinaryCalculator.decToBinaryWithLength(position, MAX_INDEX);
-            simpleImplicantList.add(new Implicant(binary));
+            startImplicantList.add(new Implicant(binary));
         }
     }
 
@@ -122,7 +122,7 @@ public class Tabulation {
 
     private Map<Integer, List<Implicant>> getStartImplicantsByIndex() {
         Map<Integer, List<Implicant>> implicantsByIndex = new HashMap<>();
-        List<Implicant> startImplicants = List.copyOf(simpleImplicantList);
+        List<Implicant> startImplicants = List.copyOf(startImplicantList);
 
         for (Implicant implicant : startImplicants) {
             int index = implicant.getIndex(countingValue);
@@ -165,7 +165,7 @@ public class Tabulation {
 
     public List<Implicant> getSimpleImplicants() {
 
-        return simpleImplicantList;
+        return startImplicantList;
     }
 
 

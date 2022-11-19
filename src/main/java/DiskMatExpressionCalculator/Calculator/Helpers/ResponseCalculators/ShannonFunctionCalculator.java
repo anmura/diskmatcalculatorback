@@ -1,4 +1,4 @@
-package DiskMatExpressionCalculator.Calculator.Helpers.Calculators;
+package DiskMatExpressionCalculator.Calculator.Helpers.ResponseCalculators;
 
 import DiskMatExpressionCalculator.Calculator.Enums.ValueName;
 import DiskMatExpressionCalculator.Calculator.Models.Function;

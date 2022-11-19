@@ -1,10 +1,9 @@
-package DiskMatExpressionCalculator.Calculator.Helpers.Calculators;
+package DiskMatExpressionCalculator.Calculator.Helpers.ResponseCalculators;
 
 import DiskMatExpressionCalculator.Calculator.Enums.ValueName;
 import DiskMatExpressionCalculator.Calculator.Helpers.FunctionCalculator;
 import DiskMatExpressionCalculator.Calculator.Models.Function;
 import DiskMatExpressionCalculator.Calculator.Models.FunctionPart;
-import DiskMatExpressionCalculator.Calculator.Models.Operations.Operation;
 import DiskMatExpressionCalculator.Calculator.Models.TruthTable;
 import DiskMatExpressionCalculator.web.Response.ExpandedFunctionResponse;
 

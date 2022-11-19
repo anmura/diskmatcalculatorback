@@ -59,20 +59,14 @@ public class TruthTable {
                 calculatingFunction.setNumberToValue(Integer.parseInt(String.valueOf(binaryValues[j])), containedValueNames.get(j));
             }
 
-            FunctionPart res = calculateWithConstants(calculatingFunction);
-
-            if (res.isValue()) {
-                int num = ((Value) res).getNumericValue();
+            Value res = (Value) calculateWithConstants(calculatingFunction);
+                int num = res.getNumericValue();
 
                 if (num == 1) {
                     oneArea.addPosition(i);
                 } else if (num == 0) {
                     zeroArea.addPosition(i);
                 }
-            } else {
-                throw new RuntimeException("NOOOOOOO");
-                //TODO: do
-            }
 
         }
     }

@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.logging.Logger;
 
 import static DiskMatExpressionCalculator.Calculator.Helpers.DecHexBinaryCalculator.hexArrayToDecList;
 
@@ -19,6 +20,7 @@ public class AreasCalculator {
 
     public static Map<AreaName, Area> getAreas(String studentNumber) {
         final int workingNumberLength = 5;
+
         workingNumber = Integer.parseInt(studentNumber.substring(studentNumber.length() - workingNumberLength));
 
         String sevenDigitHex = multiplyHexBySevenToLength(7);
