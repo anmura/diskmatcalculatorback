@@ -110,7 +110,6 @@ public class Tabulation {
                     compareImplicant.setPrimary(false);
                     newImplicant.setPrimary(true);
 
-                    // Mb faster will be make list set and back after loop ? 1-->
                     if (!newImplicants.contains(newImplicant)) {
                         newImplicants.add(newImplicant);
                     }
@@ -163,8 +162,7 @@ public class Tabulation {
         return primaryImplicants;
     }
 
-    public List<Implicant> getSimpleImplicants() {
-
+    public List<Implicant> getStartImplicants() {
         return startImplicantList;
     }
 

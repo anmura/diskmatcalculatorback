@@ -4,11 +4,13 @@ import DiskMatExpressionCalculator.Calculator.Models.FunctionFormData;
 import DiskMatExpressionCalculator.Calculator.Models.Implicant;
 import DiskMatExpressionCalculator.Calculator.Models.McCluskey.CoverageTable;
 import DiskMatExpressionCalculator.Calculator.Models.McCluskey.McCluskey;
-import lombok.Getter;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.*;
 
-@Getter
+@Data
+@NoArgsConstructor
 public class McCluskeyResponse {
 
     private Map<Integer, Map<Integer, List<String>>> customConjunctiveTabulationData;

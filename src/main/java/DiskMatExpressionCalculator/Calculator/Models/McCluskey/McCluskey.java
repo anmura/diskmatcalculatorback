@@ -24,8 +24,8 @@ public class McCluskey {
         disjunctiveTabulation = new Tabulation(oneArea);
         conjunctiveTabulation = new Tabulation(zeroArea);
 
-        disjunctiveCoverageTable = new CoverageTable(disjunctiveTabulation.getPrimaryImplicants(), disjunctiveTabulation.getSimpleImplicants(), oneArea);
-        conjunctiveCoverageTable = new CoverageTable(conjunctiveTabulation.getPrimaryImplicants(), conjunctiveTabulation.getSimpleImplicants(), zeroArea);
+        disjunctiveCoverageTable = new CoverageTable(disjunctiveTabulation.getPrimaryImplicants(), disjunctiveTabulation.getStartImplicants(), oneArea);
+        conjunctiveCoverageTable = new CoverageTable(conjunctiveTabulation.getPrimaryImplicants(), conjunctiveTabulation.getStartImplicants(), zeroArea);
 
     }
 

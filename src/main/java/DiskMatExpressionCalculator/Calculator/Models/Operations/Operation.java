@@ -1,6 +1,7 @@
 package DiskMatExpressionCalculator.Calculator.Models.Operations;
 
 import DiskMatExpressionCalculator.Calculator.Enums.OperationName;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 public abstract class Operation {
 
@@ -15,6 +16,7 @@ public abstract class Operation {
         return Name;
     }
 
+    @JsonIgnore
     public Integer getPrimaryNumber() {
         return null;
     }

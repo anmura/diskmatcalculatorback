@@ -4,6 +4,7 @@ package DiskMatExpressionCalculator.Calculator.Models;
 import DiskMatExpressionCalculator.Calculator.Enums.OperationName;
 import DiskMatExpressionCalculator.Calculator.Enums.ValueName;
 import DiskMatExpressionCalculator.Calculator.Models.Operations.Operation;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.util.*;
 
@@ -227,6 +228,7 @@ public class Function extends FunctionPart implements Cloneable {
         }
     }
 
+    @JsonIgnore
     public List<ValueName> getContainedValueNames() {
         List<ValueName> result = new ArrayList<>();
         for (FunctionPart element :

@@ -14,15 +14,15 @@ import java.util.List;
 public class CoverageTable {
 
     private final List<Integer> activePositions;
-    private final List<Implicant> simpleImplicants;
+    private final List<Implicant> startImplicants;
     private final List<Implicant> primaryImplicants;
 
 
     private Operation functionOperation;
     private Operation innerFunctionOperation;
 
-    public CoverageTable(List<Implicant> primaryImplicants, List<Implicant> simpleImplicants, Area area) {
-        this.simpleImplicants = simpleImplicants;
+    public CoverageTable(List<Implicant> primaryImplicants, List<Implicant> startImplicants, Area area) {
+        this.startImplicants = startImplicants;
         this.primaryImplicants = primaryImplicants;
 
         this.activePositions = area.getPositions();
@@ -55,9 +55,9 @@ public class CoverageTable {
     public FunctionFormData getExpandedNormalFormData() {
         Function expandedForm = new Function(functionOperation);
 
-        simpleImplicants.forEach(i -> expandedForm.addElement(i.getFunctionPart(innerFunctionOperation)));
+        startImplicants.forEach(i -> expandedForm.addElement(i.getFunctionPart(innerFunctionOperation)));
 
-        return new FunctionFormData(expandedForm, simpleImplicants);
+        return new FunctionFormData(expandedForm, startImplicants);
     }
 
     public FunctionFormData getMinimalNormalFormData() {

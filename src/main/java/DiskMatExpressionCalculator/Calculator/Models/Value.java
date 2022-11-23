@@ -2,6 +2,7 @@ package DiskMatExpressionCalculator.Calculator.Models;
 
 
 import DiskMatExpressionCalculator.Calculator.Enums.ValueName;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import java.util.Objects;
 
@@ -59,6 +60,7 @@ public class Value extends FunctionPart implements Cloneable {
         return name;
     }
 
+    @JsonIgnore
     public boolean isNumeric() {
         return this.numericValue != null;
     }
@@ -79,9 +81,6 @@ public class Value extends FunctionPart implements Cloneable {
     }
 
     public void setNumericValue(Integer number){
-//        if (number != 1 && number != 0) {
-//            throw new Exception("Number must be 1 or 0!");
-//        }
 
         if (!this.isInverted()){
             this.numericValue = number;

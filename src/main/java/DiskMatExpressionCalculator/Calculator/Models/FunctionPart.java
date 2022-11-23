@@ -1,5 +1,7 @@
 package DiskMatExpressionCalculator.Calculator.Models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.List;
 
 public abstract class FunctionPart implements Cloneable {
@@ -10,6 +12,7 @@ public abstract class FunctionPart implements Cloneable {
         this.inversion = inversion;
     }
 
+    @JsonIgnore
     public boolean isInverted() {
         return this.inversion;
     }
@@ -28,11 +31,11 @@ public abstract class FunctionPart implements Cloneable {
     public boolean containsFunction() {
         return false;
     }
-
+    @JsonIgnore
     public boolean isFunction() {
         return this.getClass() == Function.class;
     }
-
+    @JsonIgnore
     public boolean isValue() {
         return this.getClass() == Value.class;
     }

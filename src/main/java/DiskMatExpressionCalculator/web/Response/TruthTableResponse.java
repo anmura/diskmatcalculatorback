@@ -1,11 +1,14 @@
 package DiskMatExpressionCalculator.web.Response;
 
 import DiskMatExpressionCalculator.Calculator.Models.TruthTable;
+import lombok.Data;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 
-@Getter
+@Data
+@NoArgsConstructor
 public class TruthTableResponse {
 
     private List<Integer> zeroPositions;
