@@ -1,8 +1,7 @@
 package DiskMatExpressionCalculator.web.Response;
 
-import DiskMatExpressionCalculator.Calculator.Models.TruthTable;
+import DiskMatExpressionCalculator.Models.TruthTable;
 import lombok.Data;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.util.List;

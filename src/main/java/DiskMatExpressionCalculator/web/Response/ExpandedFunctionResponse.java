@@ -1,9 +1,9 @@
 package DiskMatExpressionCalculator.web.Response;
 
 
-import DiskMatExpressionCalculator.Calculator.Models.Function;
-import DiskMatExpressionCalculator.Calculator.Models.FunctionPart;
-import DiskMatExpressionCalculator.Calculator.Models.TruthTable;
+import DiskMatExpressionCalculator.Models.Function;
+import DiskMatExpressionCalculator.Models.FunctionPart;
+import DiskMatExpressionCalculator.Models.TruthTable;
 
 public class ExpandedFunctionResponse {
     TruthTableResponse truthTableResponse;

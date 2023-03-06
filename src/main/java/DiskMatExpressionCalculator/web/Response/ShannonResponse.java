@@ -1,6 +1,6 @@
 package DiskMatExpressionCalculator.web.Response;
 
-import DiskMatExpressionCalculator.Calculator.Models.Function;
+import DiskMatExpressionCalculator.Models.Function;
 import lombok.Getter;
 
 @Getter
