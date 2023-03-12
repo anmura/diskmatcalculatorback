@@ -7,9 +7,10 @@ import java.util.List;
 
 @Getter
 public class FunctionFormData {
-    Function function;
     List<List<Integer>> positions;
     String functionString;
+
+    Function function;
 
     public FunctionFormData(Function function, List<Implicant> implicants) {
         this.function = function;

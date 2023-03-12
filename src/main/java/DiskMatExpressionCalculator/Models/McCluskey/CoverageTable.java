@@ -45,19 +45,19 @@ public class CoverageTable {
     }
 
     public FunctionFormData getFullNormalFormData() {
+        Function reducedForm = new Function(functionOperation);
+
+        startImplicants.forEach(i -> reducedForm.addElement(i.getFunctionPart(innerFunctionOperation)));
+
+        return new FunctionFormData(reducedForm, startImplicants);
+    }
+
+    public FunctionFormData getReducedNormalFormData() {
         Function fullForm = new Function(functionOperation);
 
         primaryImplicants.forEach(pi -> fullForm.addElement(pi.getFunctionPart(innerFunctionOperation)));
 
         return new FunctionFormData(fullForm, primaryImplicants);
-    }
-
-    public FunctionFormData getExpandedNormalFormData() {
-        Function expandedForm = new Function(functionOperation);
-
-        startImplicants.forEach(i -> expandedForm.addElement(i.getFunctionPart(innerFunctionOperation)));
-
-        return new FunctionFormData(expandedForm, startImplicants);
     }
 
     public FunctionFormData getMinimalNormalFormData() {

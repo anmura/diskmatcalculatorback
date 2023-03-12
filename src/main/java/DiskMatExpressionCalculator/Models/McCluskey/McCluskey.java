@@ -53,12 +53,12 @@ public class McCluskey {
         return conjunctiveCoverageTable.getFullNormalFormData();
     }
 
-    public FunctionFormData getConjunctiveExpandedNormalFormData() {
-        return conjunctiveCoverageTable.getExpandedNormalFormData();
+    public FunctionFormData getConjunctiveReducedNormalFormData() {
+        return conjunctiveCoverageTable.getReducedNormalFormData();
     }
 
-    public FunctionFormData getDisjunctiveExpandedNormalFormData() {
-        return disjunctiveCoverageTable.getExpandedNormalFormData();
+    public FunctionFormData getDisjunctiveReducedNormalFormData() {
+        return disjunctiveCoverageTable.getReducedNormalFormData();
     }
 
     public FunctionFormData getConjunctiveMinimalNormalFormData() {

@@ -4,7 +4,7 @@ import DiskMatExpressionCalculator.Enums.ValueName;
 import DiskMatExpressionCalculator.Models.Function;
 import DiskMatExpressionCalculator.Models.FunctionPart;
 import DiskMatExpressionCalculator.Models.TruthTable;
-import DiskMatExpressionCalculator.web.Response.ExpandedFunctionResponse;
+import DiskMatExpressionCalculator.web.Response.ReducedFunctionResponse;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -14,8 +14,8 @@ import static DiskMatExpressionCalculator.Calculator.Helpers.FunctionHelper.calc
 import static DiskMatExpressionCalculator.Calculator.Helpers.FunctionHelper.simplifyFunction;
 
 @Service
-public class ExpandedFunctionService {
-    public ExpandedFunctionResponse calculateExpandedFunction(Function function, ValueName valueName, int constant) {
+public class ReducedFunctionService {
+    public ReducedFunctionResponse calculateReducedFunction(Function function, ValueName valueName, int constant) {
 
         function.setNumberToValue(constant, valueName);
         Function startFunction = function.clone();
@@ -24,7 +24,7 @@ public class ExpandedFunctionService {
 
         TruthTable truthTable = new TruthTable(endFunction);
 
-        return new ExpandedFunctionResponse(truthTable, startFunction, endFunction);
+        return new ReducedFunctionResponse(truthTable, startFunction, endFunction);
     }
 
     private FunctionPart calculateEndFunction(Function input) {

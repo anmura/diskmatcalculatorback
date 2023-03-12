@@ -21,8 +21,8 @@ public class McCluskeyFunctionResponse {
 
     private FunctionFormData conjunctiveFullNormalFormData;
     private FunctionFormData disjunctiveFullNormalFormData;
-    private FunctionFormData conjunctiveExpandedNormalFormData;
-    private FunctionFormData disjunctiveExpandedNormalFormData;
+    private FunctionFormData conjunctiveReducedNormalFormData;
+    private FunctionFormData disjunctiveReducedNormalFormData;
     private FunctionFormData conjunctiveMinimalNormalFormData;
     private FunctionFormData disjunctiveMinimalNormalFormData;
 
@@ -41,8 +41,8 @@ public class McCluskeyFunctionResponse {
 
         disjunctiveFullNormalFormData = mcCluskey.getDisjunctiveFullNormalFormData();
         conjunctiveFullNormalFormData = mcCluskey.getConjunctiveFullNormalFormData();
-        conjunctiveExpandedNormalFormData = mcCluskey.getConjunctiveExpandedNormalFormData();
-        disjunctiveExpandedNormalFormData = mcCluskey.getDisjunctiveExpandedNormalFormData();
+        conjunctiveReducedNormalFormData = mcCluskey.getConjunctiveReducedNormalFormData();
+        disjunctiveReducedNormalFormData = mcCluskey.getDisjunctiveReducedNormalFormData();
         conjunctiveMinimalNormalFormData = mcCluskey.getConjunctiveMinimalNormalFormData();
         disjunctiveMinimalNormalFormData = mcCluskey.getDisjunctiveMinimalNormalFormData();
 

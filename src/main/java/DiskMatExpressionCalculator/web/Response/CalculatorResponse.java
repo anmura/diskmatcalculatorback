@@ -11,9 +11,9 @@ public class CalculatorResponse {
     private McCluskeyFunctionResponse mcCluskeyFunctionResponse;
     private ShannonResponse shannonResponseX1X3;
     private ShannonResponse shannonResponseX2X4;
-    private ExpandedFunctionResponse expandedFunctionResponseX2Zero;
-    private ExpandedFunctionResponse expandedFunctionResponseX4One;
-    private ExpandedFunctionResponse expandedFunctionResponseX1One;
-    private ExpandedFunctionResponse expandedFunctionResponseX3Zero;
+    private ReducedFunctionResponse reducedFunctionResponseX2Zero;
+    private ReducedFunctionResponse reducedFunctionResponseX4One;
+    private ReducedFunctionResponse reducedFunctionResponseX1One;
+    private ReducedFunctionResponse reducedFunctionResponseX3Zero;
 
 }

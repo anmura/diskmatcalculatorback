@@ -5,11 +5,11 @@ import lombok.Getter;
 
 @Getter
 public class ShannonResponse {
-    Function startFunction;
-    Function endFunction;
+    String startFunctionString;
+    String endFunctionString;
 
-    public ShannonResponse(Function startFunction, Function endFunction) {
-        this.startFunction = startFunction;
-        this.endFunction = endFunction;
+    public ShannonResponse(Function startFunctionString, Function endFunctionString) {
+        this.startFunctionString = startFunctionString.toString();
+        this.endFunctionString = endFunctionString.toString();
     }
 }

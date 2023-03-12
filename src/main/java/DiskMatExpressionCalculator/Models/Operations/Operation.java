@@ -24,8 +24,6 @@ public abstract class Operation {
     public Operation(OperationName operationName) {
         Name = operationName;
         Symbol = operationName.OperationSymbol;
-
-
     }
 
     public static class And extends Operation {

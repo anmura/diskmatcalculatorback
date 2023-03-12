@@ -14,7 +14,7 @@ public class CalculatorService {
     @Autowired
     private TruthTableService truthTableService;
     @Autowired
-    private ExpandedFunctionService expandedFunctionService;
+    private ReducedFunctionService reducedFunctionService;
     @Autowired
     private McCluskeyFunctionService mcCluskeyFunctionService;
     @Autowired
@@ -34,10 +34,10 @@ public class CalculatorService {
 
         //Expansion
         Function functionForExpansion = mcCluskeyFunctionResponse.getConjunctiveMinimalNormalFormData().getFunction();
-        ExpandedFunctionResponse expandedFunctionResponseX2Zero = expandedFunctionService.calculateExpandedFunction(functionForExpansion, ValueName.X2, 0);
-        ExpandedFunctionResponse expandedFunctionResponseX4One = expandedFunctionService.calculateExpandedFunction(functionForExpansion, ValueName.X4, 1);
-        ExpandedFunctionResponse expandedFunctionResponseX1One = expandedFunctionService.calculateExpandedFunction(functionForExpansion, ValueName.X1, 1);
-        ExpandedFunctionResponse expandedFunctionResponseX3Zero = expandedFunctionService.calculateExpandedFunction(functionForExpansion, ValueName.X3, 0);
+        ReducedFunctionResponse reducedFunctionResponseX2Zero = reducedFunctionService.calculateReducedFunction(functionForExpansion, ValueName.X2, 0);
+        ReducedFunctionResponse reducedFunctionResponseX4One = reducedFunctionService.calculateReducedFunction(functionForExpansion, ValueName.X4, 1);
+        ReducedFunctionResponse reducedFunctionResponseX1One = reducedFunctionService.calculateReducedFunction(functionForExpansion, ValueName.X1, 1);
+        ReducedFunctionResponse reducedFunctionResponseX3Zero = reducedFunctionService.calculateReducedFunction(functionForExpansion, ValueName.X3, 0);
 
         //Set response values
         CalculatorResponse calculatorResponse = new CalculatorResponse();
@@ -48,10 +48,10 @@ public class CalculatorService {
         calculatorResponse.setShannonResponseX1X3(shannonResponseX1X3);
         calculatorResponse.setShannonResponseX2X4(shannonResponseX2X4);
 
-        calculatorResponse.setExpandedFunctionResponseX2Zero(expandedFunctionResponseX2Zero);
-        calculatorResponse.setExpandedFunctionResponseX3Zero(expandedFunctionResponseX3Zero);
-        calculatorResponse.setExpandedFunctionResponseX1One(expandedFunctionResponseX1One);
-        calculatorResponse.setExpandedFunctionResponseX4One(expandedFunctionResponseX4One);
+        calculatorResponse.setReducedFunctionResponseX2Zero(reducedFunctionResponseX2Zero);
+        calculatorResponse.setReducedFunctionResponseX3Zero(reducedFunctionResponseX3Zero);
+        calculatorResponse.setReducedFunctionResponseX1One(reducedFunctionResponseX1One);
+        calculatorResponse.setReducedFunctionResponseX4One(reducedFunctionResponseX4One);
 
         return calculatorResponse;
     }
