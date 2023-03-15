@@ -113,6 +113,9 @@ public class Tabulation {
                     if (!newImplicants.contains(newImplicant)) {
                         newImplicants.add(newImplicant);
                     }
+
+                }else{
+                    compareImplicant.setPrimary(true);
                 }
             }
         }

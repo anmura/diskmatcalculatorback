@@ -42,7 +42,7 @@ public class McCluskey {
     }
 
     public Map<Integer, Map<Integer, List<Implicant>>> getConjunctiveTabulationData() {
-        return disjunctiveTabulation.getTabulationData();
+        return conjunctiveTabulation.getTabulationData();
     }
 
     public FunctionFormData getDisjunctiveFullNormalFormData() {
