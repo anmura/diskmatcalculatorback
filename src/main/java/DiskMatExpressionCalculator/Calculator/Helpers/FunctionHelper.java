@@ -5,6 +5,8 @@ import DiskMatExpressionCalculator.Enums.ValueName;
 import DiskMatExpressionCalculator.Models.Function;
 import DiskMatExpressionCalculator.Models.FunctionPart;
 import DiskMatExpressionCalculator.Models.Laws.Law;
+import DiskMatExpressionCalculator.Models.McCluskey.McCluskey;
+import DiskMatExpressionCalculator.Models.TruthTable;
 import DiskMatExpressionCalculator.Models.Value;
 
 
@@ -99,6 +101,12 @@ public class FunctionHelper {
 
         return function;
 
+    }
+
+    public static FunctionPart simplifyDisjunctiveFunctionToMinimal(Function function){
+        TruthTable truthTable = new TruthTable(function);
+        McCluskey mcCluskey = new McCluskey(truthTable);
+        return mcCluskey.getDisjunctiveMinimalNormalFormData().getFunction();
     }
 
 

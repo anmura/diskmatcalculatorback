@@ -9,7 +9,7 @@ public class CalculatorResponse {
 
     private TruthTableResponse truthTableResponse;
     private McCluskeyFunctionResponse mcCluskeyFunctionResponse;
-    private ShannonResponse shannonResponseX1X3;
+    private ShannonResponse shannonResponseX1X3X5;
     private ShannonResponse shannonResponseX2X4;
     private ReducedFunctionResponse reducedFunctionResponseX2Zero;
     private ReducedFunctionResponse reducedFunctionResponseX4One;

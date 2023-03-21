@@ -8,6 +8,7 @@ import java.util.List;
 @Getter
 public class FunctionFormData {
     List<List<Integer>> positions;
+    List<String> implicants;
     String functionString;
 
     Function function;
@@ -15,11 +16,13 @@ public class FunctionFormData {
     public FunctionFormData(Function function, List<Implicant> implicants) {
         this.function = function;
         this.functionString = function.toString();
-        setPositions(implicants);
+        setImplicantPositions(implicants);
     }
 
-    private void setPositions(List<Implicant> implicants) {
+    private void setImplicantPositions(List<Implicant> implicants) {
         this.positions = new ArrayList<>();
         implicants.forEach(implicant -> positions.add(implicant.getCoverage()));
+
+        this.implicants = implicants.stream().map(implicant-> implicant.toString()).toList();
     }
 }

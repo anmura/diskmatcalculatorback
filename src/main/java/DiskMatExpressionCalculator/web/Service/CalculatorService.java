@@ -28,12 +28,12 @@ public class CalculatorService {
         McCluskeyFunctionResponse mcCluskeyFunctionResponse = mcCluskeyFunctionService.calculateMcCluskeyFunction(truthTableResponse.getZeroPositions(), truthTableResponse.getOnePositions());
 
         //Shannon
-        Function functionForShannonExpansion = mcCluskeyFunctionResponse.getDisjunctiveFullNormalFormData().getFunction();
-        ShannonResponse shannonResponseX1X3 = shannonFunctionService.calculateDisjunctiveShannon(functionForShannonExpansion, List.of(ValueName.X1, ValueName.X3));
+        Function functionForShannonExpansion = mcCluskeyFunctionResponse.getDisjunctiveMinimalNormalFormData().getFunction();
+        ShannonResponse shannonResponseX1X3X5 = shannonFunctionService.calculateDisjunctiveShannon(functionForShannonExpansion, List.of(ValueName.X1, ValueName.X3, ValueName.X5));
         ShannonResponse shannonResponseX2X4 = shannonFunctionService.calculateDisjunctiveShannon(functionForShannonExpansion, List.of(ValueName.X2, ValueName.X4));
 
         //Expansion
-        Function functionForExpansion = mcCluskeyFunctionResponse.getConjunctiveMinimalNormalFormData().getFunction();
+        Function functionForExpansion = mcCluskeyFunctionResponse.getDisjunctiveMinimalNormalFormData().getFunction();
         ReducedFunctionResponse reducedFunctionResponseX2Zero = reducedFunctionService.calculateReducedFunction(functionForExpansion, ValueName.X2, 0);
         ReducedFunctionResponse reducedFunctionResponseX4One = reducedFunctionService.calculateReducedFunction(functionForExpansion, ValueName.X4, 1);
         ReducedFunctionResponse reducedFunctionResponseX1One = reducedFunctionService.calculateReducedFunction(functionForExpansion, ValueName.X1, 1);
@@ -45,7 +45,7 @@ public class CalculatorService {
         calculatorResponse.setTruthTableResponse(truthTableResponse);
         calculatorResponse.setMcCluskeyFunctionResponse(mcCluskeyFunctionResponse);
 
-        calculatorResponse.setShannonResponseX1X3(shannonResponseX1X3);
+        calculatorResponse.setShannonResponseX1X3X5(shannonResponseX1X3X5);
         calculatorResponse.setShannonResponseX2X4(shannonResponseX2X4);
 
         calculatorResponse.setReducedFunctionResponseX2Zero(reducedFunctionResponseX2Zero);

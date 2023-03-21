@@ -17,10 +17,10 @@ import static DiskMatExpressionCalculator.Calculator.Helpers.FunctionHelper.simp
 public class ReducedFunctionService {
     public ReducedFunctionResponse calculateReducedFunction(Function function, ValueName valueName, int constant) {
 
-        function.setNumberToValue(constant, valueName);
         Function startFunction = function.clone();
+        startFunction.setNumberToValue(constant, valueName);
 
-        FunctionPart endFunction = calculateEndFunction(function);
+        FunctionPart endFunction = calculateEndFunction(startFunction);
 
         TruthTable truthTable = new TruthTable(endFunction);
 
