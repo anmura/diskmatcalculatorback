@@ -11,7 +11,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static DiskMatExpressionCalculator.Calculator.Helpers.DecHexBinaryCalculator.hexArrayToDecList;
+import static DiskMatExpressionCalculator.Helpers.DecHexBinaryCalculator.hexArrayToDecList;
 
 @Service
 public class TruthTableService {

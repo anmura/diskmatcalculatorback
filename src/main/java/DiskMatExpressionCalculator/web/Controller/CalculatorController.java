@@ -15,7 +15,6 @@ public class CalculatorController {
 
     @GetMapping("calculate/{studentNumber}")
     public CalculatorResponse getCalculations(@PathVariable String studentNumber){
-        //TODO: validateStudentNumber
         return calculatorService.getCalculations(studentNumber);
     }
 

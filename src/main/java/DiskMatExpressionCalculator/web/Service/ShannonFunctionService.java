@@ -10,8 +10,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-import static DiskMatExpressionCalculator.Calculator.Helpers.DecHexBinaryCalculator.decToBinaryWithLength;
-import static DiskMatExpressionCalculator.Calculator.Helpers.FunctionHelper.simplifyFunction;
+import static DiskMatExpressionCalculator.Helpers.DecHexBinaryCalculator.decToBinaryWithLength;
+import static DiskMatExpressionCalculator.Helpers.FunctionHelper.simplifyFunction;
 
 @Service
 public class ShannonFunctionService {

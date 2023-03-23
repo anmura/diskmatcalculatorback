@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-import static DiskMatExpressionCalculator.Calculator.Helpers.DecHexBinaryCalculator.decToBinaryWithLength;
+import static DiskMatExpressionCalculator.Helpers.DecHexBinaryCalculator.decToBinaryWithLength;
 
 
 @Data

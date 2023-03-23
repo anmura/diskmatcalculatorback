@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+import static DiskMatExpressionCalculator.Helpers.StudentNumberValidator.checkStudentNumber;
+
 @Service
 public class CalculatorService {
 
@@ -21,6 +23,8 @@ public class CalculatorService {
     private ShannonFunctionService shannonFunctionService;
 
     public CalculatorResponse getCalculations(String studentNumber) {
+        checkStudentNumber(studentNumber);
+
         //Truth table
         TruthTableResponse truthTableResponse = truthTableService.calculateTruthTable(studentNumber);
 

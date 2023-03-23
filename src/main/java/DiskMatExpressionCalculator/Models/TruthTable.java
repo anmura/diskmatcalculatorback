@@ -11,8 +11,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static DiskMatExpressionCalculator.Calculator.Helpers.DecHexBinaryCalculator.decToBinaryWithLength;
-import static DiskMatExpressionCalculator.Calculator.Helpers.FunctionHelper.calculateWithConstants;
+import static DiskMatExpressionCalculator.Helpers.DecHexBinaryCalculator.decToBinaryWithLength;
+import static DiskMatExpressionCalculator.Helpers.FunctionHelper.calculateWithConstants;
 
 
 @Getter

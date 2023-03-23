@@ -49,6 +49,10 @@ public abstract class FunctionPart implements Cloneable {
             if (partValue.getName() == selfValue.getName() && partValue.isInverted() == selfValue.isInverted() && selfValue.getNumericValue() == partValue.getNumericValue()) {
                 return true;
             }
+
+            if(partValue.isInverted() == selfValue.isInverted() && selfValue.getNumericValue() == partValue.getNumericValue() && selfValue.getNumericValue() != null){
+                return true;
+            }
         }
         if (part.getClass() == Function.class && this.isFunction()) {
 

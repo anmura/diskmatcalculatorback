@@ -1,7 +1,7 @@
 package DiskMatExpressionCalculator.Models.McCluskey;
 
 
-import DiskMatExpressionCalculator.Calculator.Helpers.DecHexBinaryCalculator;
+import DiskMatExpressionCalculator.Helpers.DecHexBinaryCalculator;
 import DiskMatExpressionCalculator.Models.Area;
 import DiskMatExpressionCalculator.Models.Implicant;
 
@@ -14,9 +14,9 @@ public class Tabulation {
 
     private Map<Integer, Map<Integer, List<Implicant>>> tabulationData;
     private List<Implicant> startImplicantList;
-    private final int countingValue;
 
     private final int MAX_INDEX = 5;
+    private final int countingValue;
 
     public Tabulation(Area area) {
         countingValue = Integer.parseInt(area.getName().Value);
@@ -96,29 +96,38 @@ public class Tabulation {
         return isEmpty;
     }
 
+
     private List<Implicant> getNewImplicants(Map<Integer, List<Implicant>> implicantsByIndex, int index) {
         List<Implicant> newImplicants = new ArrayList<>();
 
         List<Implicant> controlList = implicantsByIndex.get(index);
         List<Implicant> compareList = implicantsByIndex.get(index + 1);
 
-        for (Implicant controlImplicant : controlList) {
-            for (Implicant compareImplicant : compareList) {
-                Implicant newImplicant = controlImplicant.getGluedImplicant(compareImplicant);
-                if (newImplicant != controlImplicant) {
-                    controlImplicant.setPrimary(false);
-                    compareImplicant.setPrimary(false);
-                    newImplicant.setPrimary(true);
+        if (controlList.size() == 0) {
+            for (Implicant implicant : compareList) {
+                implicant.setPrimary(true);
+            }
+        } else {
 
-                    if (!newImplicants.contains(newImplicant)) {
-                        newImplicants.add(newImplicant);
+            for (Implicant controlImplicant : controlList) {
+                for (Implicant compareImplicant : compareList) {
+                    Implicant newImplicant = controlImplicant.getGluedImplicant(compareImplicant);
+                    if (newImplicant != controlImplicant) {
+                        controlImplicant.setPrimary(false);
+                        compareImplicant.setPrimary(false);
+                        newImplicant.setPrimary(true);
+
+                        if (!newImplicants.contains(newImplicant)) {
+                            newImplicants.add(newImplicant);
+                        }
+
+                    } else {
+                        compareImplicant.setPrimary(true);
                     }
-
-                }else{
-                    compareImplicant.setPrimary(true);
                 }
             }
         }
+
         return newImplicants;
     }
 

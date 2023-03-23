@@ -122,7 +122,7 @@ public abstract class Law {
     }
 
 
-    public class Idempotent extends Law {
+    public static class Idempotent extends Law {
 
         public static FunctionPart apply(Function function) {
 
@@ -144,18 +144,5 @@ public abstract class Law {
         }
     }
 
-    public static class DeMorgan extends Law {
-
-        public static FunctionPart apply(Function function) {
-            function.invert();
-            function.reverseOperation();
-
-            for (FunctionPart element : function.getElements()) {
-                element.invert();
-            }
-
-            return function;
-        }
-    }
 
 }

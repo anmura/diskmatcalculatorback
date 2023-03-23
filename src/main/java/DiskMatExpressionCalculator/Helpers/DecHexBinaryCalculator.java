@@ -1,4 +1,4 @@
-package DiskMatExpressionCalculator.Calculator.Helpers;
+package DiskMatExpressionCalculator.Helpers;
 
 import java.util.ArrayList;
 import java.util.List;

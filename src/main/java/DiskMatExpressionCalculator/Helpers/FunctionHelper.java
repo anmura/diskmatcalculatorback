@@ -1,4 +1,4 @@
-package DiskMatExpressionCalculator.Calculator.Helpers;
+package DiskMatExpressionCalculator.Helpers;
 
 import DiskMatExpressionCalculator.Enums.OperationName;
 import DiskMatExpressionCalculator.Enums.ValueName;
